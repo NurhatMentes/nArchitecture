@@ -13,11 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\corePackages\Core.Persistence\Core.Persistence.csproj" />
+    <Folder Include="Entities\Enums\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\Enums\" />
+    <ProjectReference Include="..\..\..\corePackages\Core.Persistence\Core.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

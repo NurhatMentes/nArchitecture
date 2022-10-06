@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Contexts;
 
@@ -11,9 +12,10 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    partial class BaseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221003182215_add-user-claim-models")]
+    partial class adduserclaimmodels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,6 +164,18 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Brands", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "BMW"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Mercedes"
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Model", b =>
@@ -196,6 +210,56 @@ namespace Persistence.Migrations
                     b.HasIndex("BrandId");
 
                     b.ToTable("Models", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BrandId = 1,
+                            DailyPrice = 1400m,
+                            ImageUrl = "",
+                            Name = "Series 4"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BrandId = 1,
+                            DailyPrice = 1000m,
+                            ImageUrl = "",
+                            Name = "Series 3"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BrandId = 1,
+                            DailyPrice = 800m,
+                            ImageUrl = "",
+                            Name = "Series 1"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BrandId = 2,
+                            DailyPrice = 1200m,
+                            ImageUrl = "",
+                            Name = "Benz"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BrandId = 3,
+                            DailyPrice = 1200m,
+                            ImageUrl = "",
+                            Name = "A4"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BrandId = 3,
+                            DailyPrice = 1300m,
+                            ImageUrl = "",
+                            Name = "A6"
+                        });
                 });
 
             modelBuilder.Entity("Core.Security.Entities.RefreshToken", b =>

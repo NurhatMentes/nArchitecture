@@ -13,8 +13,10 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Brands.Queries.GetListBrand
 {
+    //BrandListModel, Model olmasının sebebi içinde hem dto hem de sayfalama bilgisinide (pagenation) vereceğimizden Model yaptık. yani encaplutation yaptık
     public class GetListBrandQuery:IRequest<BrandListModel>
     {
+        //sayfa bilgisini veriyoruz
         public PageRequest PageRequest { get; set; }
 
         public class GetListBrandQueryHandler : IRequestHandler<GetListBrandQuery, BrandListModel>
